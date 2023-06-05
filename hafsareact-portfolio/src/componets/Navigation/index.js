@@ -21,6 +21,7 @@ function Navigation(props) {
 			</ul>
 		</nav>
 	);
+    
 }
 
 export default Navigation;

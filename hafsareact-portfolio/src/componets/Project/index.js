@@ -1,53 +1,65 @@
-import React, { useState } from "react";
-import Card from "react-bootstrap/Card";
+import React from 'react';
+import Project from '../Project';
 
-function Project(props) {
-
-	const currentProject = useState(props)[0].projects;
-
-	const name = currentProject.name;
-	const description = currentProject.description;
-	const image = currentProject.image;
-	const techs = currentProject.technologies;
-	const appLink = currentProject.deployed;
-	const gitLink = currentProject.github;
-
-	function getTechs(techArray) {
-		let techList = "";
-
-		for (var i = 0; i < techArray.length; i++) {
-			if (i === techArray.length - 1) {
-				techList += techArray[i];
-			} else {
-				techList += techArray[i] + ", ";
-			}
-		}
-
-		return techList;
-	}
+function Portfolio() {
+	const projects = [
+		{
+			name: 'employer tracker',
+			description:
+				'This project allows you to track employers.',
+			technologies: [
+				'HTML/CSS',
+				'JavaScript',
+				'Web APIs',
+			],
+			github:'https://github.com/HAFSAABDI880/employee-tracker-go/',
+		 
+		},
+	
+		{
+			name: 'Weather dashboard',
+			description:
+				'Budget Tracker is an Application that uses a noSQL database and offline persistance for a great user experience for managing their finances and budgeting no matter where they are.',
+			image: 'Weather-Dashboard_.png',
+			technologies: [
+				'JavaScript',
+				'MongoDB',
+				'IndexedDB & Service Workers',
+				'Node.js',
+				'Express',
+			],
+			github: 'https://github.com/HAFSAABDI880/weather-dashboard ',
+			
+		},
+		
+	];
 
 	return (
-		<Card style={{ width: "18rem" }}>
-			<Card.Img
-				variant="top"
-				src={require(`../../assets/images/${image}`)}
-				className="card-image"
-			/>
+		<section>
 			<div className="center">
-				<Card.Body>
-					<Card.Title className="card-title">{name}</Card.Title>
-					<Card.Text className="card-text">{description}</Card.Text>
-					<Card.Subtitle className="card-subtitle">Techs Used</Card.Subtitle>
-					<Card.Text className="card-techs">{getTechs(techs)}</Card.Text>
-					<Card.Link href={appLink} target="_blank" className="card-link">
-						{name} App
-					</Card.Link>
-					<br></br>
-					<Card.Link href={gitLink} target="_blank" className="card-link">
-						{name} Github
-					</Card.Link>
-				</Card.Body>
+				<h1 className="page-header">My Portfolio</h1>
 			</div>
-		</Card>
+			<div>
+				<ul className="flex-row mobile-row">
+					<li className="padding">
+						<Project projects={projects[0]}></Project>
+					</li>
+					<li className="padding">
+						<Project projects={projects[1]}></Project>
+					</li>
+				</ul>
+				<ul className="flex-row mobile-row">
+					<li className="padding">
+						<Project projects={projects[2]}></Project>
+					</li>
+					<li className="padding">
+						<Project projects={projects[3]}></Project>
+					</li>
+				</ul>
+				
+			</div>
+		</section>
 	);
 }
+
+export default Portfolio;
