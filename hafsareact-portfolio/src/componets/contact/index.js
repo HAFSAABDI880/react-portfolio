@@ -26,6 +26,7 @@ function About() {
 					experiences on the web.
 				</p>
 			</div>
+            </div>
 		</section>
 	);
 }
